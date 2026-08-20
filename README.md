@@ -15,7 +15,7 @@ Hourly analysis of Panama's electricity system for 2025: combines system demand 
 **Net Load (MW)** — the portion of demand not covered by renewables:
 
 ```
-Net Load = Demand − (Solar + Wind + Hydro), floored at 0
+Net Load = Demand − (Solar + Wind + Hydro)
 ```
 
 This is the electricity demand that has to be met by other sources — in Panama's case, mainly thermal (fossil-fuel) generation. A smaller net load means more of the system's demand is being met by renewables, and less thermal generation is needed to keep supply secure.
@@ -23,7 +23,7 @@ This is the electricity demand that has to be met by other sources — in Panama
 **Renewables Share (%)** — how much of demand renewables are covering, per hour:
 
 ```
-Renewables Share = (Solar + Wind + Hydro) / Demand × 100, capped at 100%
+Renewables Share = (Solar + Wind + Hydro) / Demand × 100
 ```
 
 Both metrics fluctuate hour to hour because demand and each generation source move independently — solar drops to zero overnight, wind output is intermittent, and hydro depends on reservoir/river conditions. Together they track how much of Panama's electricity is being met by renewables versus thermal generation, which is a core metric for following decarbonization progress: a falling net load and a rising renewables share both mean less reliance on fossil-fuel units.
