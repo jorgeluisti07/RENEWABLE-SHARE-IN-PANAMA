@@ -28,6 +28,17 @@ Renewables Share = (Solar + Wind + Hydro) / Demand × 100
 
 Both metrics fluctuate hour to hour because demand and each generation source move independently — solar drops to zero overnight, wind output is intermittent, and hydro depends on reservoir/river conditions. Together they track how much of Panama's electricity is being met by renewables versus thermal generation, which is a core metric for following decarbonization progress: a falling net load and a rising renewables share both mean less reliance on fossil-fuel units.
 
+**Load Duration Curve** — total demand sorted from highest to lowest instead of chronologically, showing how many hours per year demand stays above any given level rather than when those hours occur. The **Residual Load Duration Curve** applies the same idea to `residual load MW` (Demand − Solar − Wind − Hydro, unfloored) instead of raw demand.
+
+**Base Load / Intermediate + Peak Load** — splits demand into two parts that add back up to it exactly:
+
+```
+Base Load = min(Demand), constant — the level that must always be met
+Intermediate + Peak Load = Demand − Base Load
+```
+
+Base load is typically supplied by stable, always-on generation; intermediate + peak load covers the fluctuating remainder and is usually met by flexible, fast-responding sources.
+
 ## Notes on the data
 
 - `DEM2024.csv` has 2 blank rows before the real header, and its values are quoted with thousands separators (e.g. `"1,139.6"`) — read it with `pd.read_csv("DEM2024.csv", skiprows=2, thousands=",")`.
@@ -42,3 +53,6 @@ Open `RENEWABLES SHARE IN PANAMA.ipynb` and run all cells top to bottom. It load
 - Net Load plot
 - Net Load vs. Demand comparison
 - Renewables Share (%) over the year
+- Load Duration Curve, and a Residual Load Duration Curve with a stacked Residual Load / Load Met By Renewables chart
+- Chronological demand curve vs. Load Duration Curve, with the year's peak hour connected between the two
+- Base Load / Intermediate + Peak Load breakdown
