@@ -1,13 +1,13 @@
 # Renewable Share in Panama
 
-Hourly analysis of Panama's electricity system for 2025: combines system demand with Solar, Wind, and Hydro generation to calculate **Net Load** and **Renewables Share** for every hour of the year.
+Hourly analysis of Panama's electricity system for 2024: combines system demand with Solar, Wind, and Hydro generation to calculate **Net Load** and **Renewables Share** for every hour of the year.
 
 ## Data
 
 | File | Contents |
 |---|---|
-| `DEM2025.csv` | Hourly system electricity demand (MW) for 2025 — one row per day, columns `H1`-`H24` |
-| `solar_eolica_hidro_horario_2025.csv` | Hourly Solar, Wind, and Hydro generation (MW) for 2025 — one row per hour, columns `solar_mw_real`, `eolica_mw_real`, `hidro_mw_real` |
+| `DEM2024.csv` | Hourly system electricity demand (MW) for 2024 — one row per day, columns `H1`-`H24` |
+| `solar_eolica_hidro_horario_2024.csv` | Hourly Solar, Wind, and Hydro generation (MW) for 2024 — one row per hour, columns `solar_mw_real`, `eolica_mw_real`, `hidro_mw_real` |
 | `RENEWABLES SHARE IN PANAMA.ipynb` | The analysis notebook |
 
 ## Key metrics
@@ -30,7 +30,7 @@ Both metrics fluctuate hour to hour because demand and each generation source mo
 
 ## Notes on the data
 
-- `DEM2025.csv` contains one invalid row (`02/29/2025` — 2025 is not a leap year); it's dropped during processing, leaving a clean 365-day year.
+- `DEM2024.csv` has 2 blank rows before the real header, and its values are quoted with thousands separators (e.g. `"1,139.6"`) — read it with `pd.read_csv("DEM2024.csv", skiprows=2, thousands=",")`.
 - The `H1`-`H24` demand columns use an hour-ending convention (`H1` = 00:00–01:00, ..., `H24` = 23:00–00:00 the next day), matching the timestamps in the generation file.
 - The generation file is sometimes downloaded with a `.xls` extension even though its contents are plain CSV text rename it, or adjust the `pd.read_csv` filename in the notebook to match whatever you actually have on disk.
 
