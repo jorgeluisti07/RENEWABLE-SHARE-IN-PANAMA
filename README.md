@@ -1,6 +1,6 @@
 # Renewable Share in Panama
 
-Hourly analysis of Panama's electricity system for 2025: combines system demand with Solar, Wind (eólica), and Hydro generation to calculate **Net Load** and **Renewables Share** for every hour of the year.
+Hourly analysis of Panama's electricity system for 2025: combines system demand with Solar, Wind, and Hydro generation to calculate **Net Load** and **Renewables Share** for every hour of the year.
 
 ## Data
 
@@ -32,7 +32,7 @@ Both metrics fluctuate hour to hour because demand and each generation source mo
 
 - `DEM2025.csv` contains one invalid row (`02/29/2025` — 2025 is not a leap year); it's dropped during processing, leaving a clean 365-day year.
 - The `H1`-`H24` demand columns use an hour-ending convention (`H1` = 00:00–01:00, ..., `H24` = 23:00–00:00 the next day), matching the timestamps in the generation file.
-- The generation file is sometimes downloaded with a `.xls` extension even though its contents are plain CSV text — rename it, or adjust the `pd.read_csv` filename in the notebook to match whatever you actually have on disk.
+- The generation file is sometimes downloaded with a `.xls` extension even though its contents are plain CSV text rename it, or adjust the `pd.read_csv` filename in the notebook to match whatever you actually have on disk.
 
 ## Running it
 
